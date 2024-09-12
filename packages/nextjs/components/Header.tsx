@@ -67,9 +67,9 @@ export const HeaderMenuLinks = () => {
       {menuLinks.map(({ label, href }) => {
         const isActive = pathname === href;
         return (
-          <li className="xl:text-lg " key={href}>
-            <Link href={href} passHref className={`${isActive ? "bg-zen p-1" : ""}`}>
-              <span className=" px-3 rounded-full text-white hover:text-zen">{label}</span>
+          <li className="xl:text-lg grid items-center " key={href}>
+            <Link href={href} passHref className={`${isActive ? "bg-zen px-0 py-0" : ""}`}>
+              <span className=" px-3 py-2 rounded-full text-white hover:bg-zen ">{label}</span>
             </Link>
           </li>
         );
@@ -89,7 +89,7 @@ export const Header = () => {
   return (
     <div className="fixed font-roo backdrop-blur-lg top-0 navbar min-h-0 flex-shrink-0 justify-between z-20 p-0 sm:px-2 ">
       <div className="">
-        <div className="lg:hidden dropdown" ref={burgerMenuRef}>
+        <div className="lg:hidden dropdown text-zen hover:text-white" ref={burgerMenuRef}>
           <label
             tabIndex={0}
             className={`ml-1 btn btn-ghost ${isDrawerOpen ? "hover:bg-zen" : ""}`}
@@ -102,7 +102,7 @@ export const Header = () => {
           {isDrawerOpen && (
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2  bg-bit  rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2  bg-gray-800  rounded-box w-52"
               onClick={() => {
                 setIsDrawerOpen(false);
               }}
@@ -116,7 +116,7 @@ export const Header = () => {
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
           </div>
         </Link>
-        <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal gap-2 pt-5">
+        <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal gap-2 pt-5 ">
           <HeaderMenuLinks />
         </ul>
       </div>

@@ -44,7 +44,7 @@ p {
 }
 
 .btn-sm {
-  @apply hover:bg-zen text-white hover:text-black;
+  @apply hover:bg-zen text-black hover:text-white;
 }
 
 .btn.btn-ghost {

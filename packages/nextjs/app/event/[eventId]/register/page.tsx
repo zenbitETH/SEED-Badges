@@ -109,9 +109,9 @@ const RegisterToEventPage: React.FC = () => {
   return (
     <div className="mx-auto">
       <form onSubmit={handleSubmit} className="rounded-md bg-gray-300/80 p-4 w-96 grid gap-4 ">
-        <div className="text-2xl font-mus text-center">
+        <div className="text-2xl font-roo text-center">
           Registro a {`${eventDetails ? eventDetails[5] : ""}`}:
-          <div className="text-center text-lg font-cha">
+          <div className="text-center text-lg font-roo">
             Fecha: {eventData ? moment(Number(eventData.eventDate)).format("DD/MM/YYYY hh:mm") : ""}
           </div>
         </div>

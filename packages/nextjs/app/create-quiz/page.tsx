@@ -384,7 +384,7 @@ const CreateQuizForm: React.FC = () => {
 
           {data.length > 0 && (
             <div className="my-6 text-center">
-              <div className="text-2xl mb-2 font-mus ">Event Questions:</div>
+              <div className="text-2xl mb-2 font-roo ">Event Questions:</div>
               <ul className="grid md:grid-cols-2 2xl:grid-cols-3 gap-3">
                 {data.map(
                   (
@@ -398,13 +398,13 @@ const CreateQuizForm: React.FC = () => {
                   ) => (
                     <li key={index} className="p-6 rounded-md bg-gray-200/60 relative text-left">
                       <p>
-                        <strong className="font-mus">Question {index + 1} :</strong> <br />
+                        <strong className="font-roo">Question {index + 1} :</strong> <br />
                         {question}
                       </p>
                       {selectEventType == 1 && (
                         <>
                           <div className="grid gap-1 ">
-                            <strong className="font-mus">Options:</strong>
+                            <strong className="font-roo">Options:</strong>
                             {options?.map((option, key) => {
                               return (
                                 <span key={key}>
@@ -415,20 +415,20 @@ const CreateQuizForm: React.FC = () => {
                             })}
                           </div>
                           <p>
-                            <strong className="font-mus">Answer:</strong> {answer}
+                            <strong className="font-roo">Answer:</strong> {answer}
                           </p>
                         </>
                       )}
 
                       <div
                         onClick={() => handleEdit(_id)}
-                        className=" absolute top-0 left-0 bg-zen hover:bg-bit rounded-br-md rounded-tl-md px-4 py-1 font-mus cursor-pointer hover:text-white"
+                        className=" absolute top-0 left-0 bg-zen hover:bg-bit rounded-br-md rounded-tl-md px-4 py-1 font-roo cursor-pointer hover:text-white"
                       >
                         Edit
                       </div>
                       <div
                         onClick={() => handleDelete(_id)}
-                        className="absolute top-0 right-0 bg-red-500 hover:bg-white hover:text-red-500 rounded-tr-md rounded-bl-md px-4 py-1 text-white font-mus cursor-pointer"
+                        className="absolute top-0 right-0 bg-red-500 hover:bg-white hover:text-red-500 rounded-tr-md rounded-bl-md px-4 py-1 text-white font-roo cursor-pointer"
                       >
                         Delete
                       </div>

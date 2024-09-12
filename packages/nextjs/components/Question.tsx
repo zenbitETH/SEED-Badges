@@ -20,7 +20,7 @@ const QuestionComponent: React.FC<QuestionProps> = ({
 }) => {
   return (
     <div className="p-6 rounded-md bg-gray-200">
-      <h3 className="font-mus md:text-xl mb-6">
+      <h3 className="font-roo md:text-xl mb-6">
         {questionIndex + 1}. {question.question}
       </h3>
       {eventData?.[0] == 1 && (

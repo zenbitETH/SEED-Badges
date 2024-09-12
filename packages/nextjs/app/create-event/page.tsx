@@ -279,7 +279,7 @@ const CreateQuizForm: React.FC = () => {
   return (
     <div className="my-28 w-full mx-auto">
       <form onSubmit={handleSubmit} className="rounded-md bg-gray-300/80 p-4 mb-4 max-w-4xl md:mx-auto mx-3">
-        <div className="text-2xl mb-2 font-mus text-center">New Event:</div>
+        <div className="text-2xl mb-2 font-roo text-center">New Event:</div>
         <div className="mb-4">
           <label htmlFor="name" className="block mb-1">
             Event Name:
@@ -438,26 +438,26 @@ const CreateQuizForm: React.FC = () => {
 
       {eventData && eventData.length > 0 && (
         <div className="text-center mx-3 my-10">
-          <div className="text-2xl mb-2 font-mus">Created Events:</div>
+          <div className="text-2xl mb-2 font-roo">Created Events:</div>
           <ul className="grid md:grid-cols-2 2xl:grid-cols-3 gap-3">
             {eventData.map(
               ({ eventId, eventName, typeOf, eventDescription, mentorName, level, closingTimestamp }, index) => (
                 <li key={eventId} className="mb-4 p-6 py-9 rounded-md bg-gray-200/60 relative">
-                  <div className="absolute top-0 left-0 bg-zen rounded-br-md rounded-tl-md px-4 py-1 font-mus">
+                  <div className="absolute top-0 left-0 bg-zen rounded-br-md rounded-tl-md px-4 py-1 font-roo">
                     Event {index + 1}
                   </div>
-                  <div className="xl:text-2xl font-bold font-mus">{eventName}</div>
+                  <div className="xl:text-2xl font-bold font-roo">{eventName}</div>
                   <div className="py-3 text-xl font-bold">{typeOf == 1 ? "3-Option Quiz" : "Written Answers"} </div>
                   <div
                     className="text-base xl:text-lg text-justify"
                     dangerouslySetInnerHTML={{ __html: eventDescription }}
                   ></div>
                   <div className="xl:text-xl italic py-3">Mentor:{mentorName}</div>
-                  <div className="absolute top-0 right-0 bg-bit rounded-tr-md rounded-bl-md px-4 py-1 text-white font-mus">
+                  <div className="absolute top-0 right-0 bg-bit rounded-tr-md rounded-bl-md px-4 py-1 text-white font-roo">
                     Lv:{String(level)}
                   </div>
 
-                  <div className="absolute bottom-0 right-0 left-0 bg-gray-500 text-base xl:text-lg py-1 rounded-b-md text-white font-cha text-center">
+                  <div className="absolute bottom-0 right-0 left-0 bg-gray-500 text-base xl:text-lg py-1 rounded-b-md text-white font-roo text-center">
                     Open until: {moment(Number(closingTimestamp) * 1000).format("HH:mm:ss DD/MM/YYYY")}
                   </div>
                 </li>

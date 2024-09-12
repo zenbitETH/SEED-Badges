@@ -69,7 +69,7 @@ export const HeaderMenuLinks = () => {
         return (
           <li className="xl:text-lg " key={href}>
             <Link href={href} passHref className={`${isActive ? "bg-zen p-1" : ""}`}>
-              <span className=" px-2 rounded-full text-white hover:text-zen">{label}</span>
+              <span className=" px-3 rounded-full text-white hover:text-zen">{label}</span>
             </Link>
           </li>
         );
@@ -88,7 +88,7 @@ export const Header = () => {
 
   return (
     <div className="fixed font-roo backdrop-blur-lg top-0 navbar min-h-0 flex-shrink-0 justify-between z-20 p-0 sm:px-2 ">
-      <div className="navbar w-full">
+      <div className="">
         <div className="lg:hidden dropdown" ref={burgerMenuRef}>
           <label
             tabIndex={0}
@@ -111,15 +111,12 @@ export const Header = () => {
             </ul>
           )}
         </div>
-        <Link href="/" passHref className="hidden navbar-start lg:flex items-center gap-2 shrink-0 text-xl text-center">
-          <div className="flex relative w-full h-12">
+        <Link href="/" passHref className="hidden lg:flex items-center gap-2 shrink-0 text-xl text-center w-full pt-3">
+          <div className="flex relative w-48 h-12">
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
           </div>
-          <div className="flex flex-col">
-            <span className="font-bold leading-tight">SEED Badges</span>
-          </div>
         </Link>
-        <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2 mx-auto">
+        <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal gap-2 pt-5">
           <HeaderMenuLinks />
         </ul>
       </div>

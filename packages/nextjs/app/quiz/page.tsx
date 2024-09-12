@@ -103,7 +103,7 @@ const Quiz = () => {
     if (type) {
       return state[value as keyof typeof state];
     } else if (value.match("123")) {
-      return "https://badges.zenbit.mx/event/" + eventId;
+      return "https://badges.seedlatam.org/event/" + eventId;
     } else {
       const valueMatch = value.match(/\[(\d+)\]/);
       const index = valueMatch !== null ? Number(valueMatch[1]) : 0;

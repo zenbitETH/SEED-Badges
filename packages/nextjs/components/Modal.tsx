@@ -45,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, close, data }) => {
         <div className="mb-9 text-center xl:text-2xl md:text-xl">
           <div className="font-roo">¡Felicidades!</div>
           <p className=" animate-pulse">
-            Zenbit Badge otorgada a: <br /> {data?.address}
+            SEED Badge otorgada a: <br /> {data?.address}
           </p>
         </div>
       </div>

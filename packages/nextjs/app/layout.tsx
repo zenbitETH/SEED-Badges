@@ -10,9 +10,9 @@ const baseUrl = process.env.VERCEL_URL
   : `http://localhost:${process.env.PORT || 3000}`;
 const imageUrl = `${baseUrl}/thumbnail.jpg`;
 
-const title = "Zenbit Badges";
-const titleTemplate = "Zenbit Badges";
-const description = "Asiste a eventos y certifica tus habilidades en ethereum 🎖️";
+const title = "SEED Badges";
+const titleTemplate = "SEED Badges";
+const description = "";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),

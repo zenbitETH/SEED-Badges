@@ -8,10 +8,13 @@ export type ScaffoldConfig = {
   onlyLocalBurnerWallet: boolean;
   walletAutoConnect: boolean;
 };
+// const isProd = process.env.VERCEL_ENV == "production";
+
+// const targetNetwork = isProd ? chains.optimism : chains.baseSepolia;
 
 const scaffoldConfig = {
   // The networks on which your DApp is live
-  targetNetworks: [process.env.VERCEL_ENV == "production" ? chains.optimism : chains.baseSepolia],
+  targetNetworks: [chains.optimism],
 
   // The interval at which your front-end polls the RPC servers for new data
   // it has no effect if you only target the local network (default is 4000)

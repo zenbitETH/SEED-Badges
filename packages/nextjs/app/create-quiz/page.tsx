@@ -283,8 +283,9 @@ const CreateQuizForm: React.FC = () => {
   return (
     <div className="my-28 mx-3">
       <div className="bg-gray-300 rounded-md p-5 mb-5 max-w-4xl mx-auto">
-        <label htmlFor="Choose Event">Choose Event</label>
+        <label htmlFor="Choose Event">Elige en que evento quieres añadir preguntas</label>
         <select
+          className="mt-2"
           name="events"
           id="eventId"
           onChange={e => {
@@ -295,14 +296,14 @@ const CreateQuizForm: React.FC = () => {
             setSelectedEvent(selectedValue);
           }}
         >
-          <option value="">Please Select</option>
+          <option value="">Eventos disponibles</option>
           {eventData &&
             eventData?.map((option, index) => (
               <option key={index} value={option.eventId.toString()}>
                 <div className="justify-between">
-                  <div>{option.eventName}</div>
-                  <div> Level {String(option.level)}</div>
-                  <div> Event Id {String(option.eventId)}</div>
+                  <div>{option.eventName} / </div>
+                  <div> Evento {String(option.eventId)} / </div>
+                  <div> Nivel {String(option.level)}</div>
                 </div>
               </option>
             ))}
@@ -313,7 +314,7 @@ const CreateQuizForm: React.FC = () => {
           <form onSubmit={handleSubmit} className="rounded-md bg-gray-500 p-4 mb-4 text-white max-w-4xl mx-auto">
             <div className="mb-4">
               <label htmlFor="question" className="block mb-1">
-                Question:
+                Pregunta:
               </label>
               <input
                 type="text"
@@ -331,7 +332,7 @@ const CreateQuizForm: React.FC = () => {
                   {formData.options.map((option, index) => (
                     <div key={index} className="w-1/3 mr-2">
                       <label htmlFor={`option${index + 1}`} className="block mb-1">
-                        Option {index + 1}:
+                        Opción {index + 1}:
                       </label>
                       <input
                         type="text"
@@ -347,13 +348,13 @@ const CreateQuizForm: React.FC = () => {
                 </div>
                 <div className="mb-4">
                   <label htmlFor="answer" className="block mb-1">
-                    Correct Answer:
+                    Respuesta correcta:
                   </label>
                   <select id="answer" name="answer" value={formData.answer} onChange={handleChange} className="">
-                    <option value="">Select correct answer</option>
-                    <option value={1}>Option 1</option>
-                    <option value={2}>Option 2</option>
-                    <option value={3}>Option 3</option>
+                    <option value="">Selecciona la respuesta correcta:</option>
+                    <option value={1}>Opción 1</option>
+                    <option value={2}>Opción 2</option>
+                    <option value={3}>Opción 3</option>
                   </select>
                 </div>
               </>
@@ -362,7 +363,7 @@ const CreateQuizForm: React.FC = () => {
               <>
                 <div className="mb-4">
                   <label htmlFor="answer" className="block mb-1">
-                    Fixed Answer:
+                    Respuesta:
                   </label>
                   <input
                     type="text"
@@ -377,14 +378,14 @@ const CreateQuizForm: React.FC = () => {
             )}
             <div className="text-center w-full">
               <button type="submit" className="bg-zen">
-                {editMode ? "Update Question" : "Add Question"}
+                {editMode ? "Actualizar pregunta" : "Añadir pregunta"}
               </button>
             </div>
           </form>
 
           {data.length > 0 && (
             <div className="my-6 text-center">
-              <div className="text-2xl mb-2 font-roo ">Event Questions:</div>
+              <div className="text-2xl mb-2 font-roo text-white">Preguntas del evento:</div>
               <ul className="grid md:grid-cols-2 2xl:grid-cols-3 gap-3">
                 {data.map(
                   (
@@ -398,13 +399,13 @@ const CreateQuizForm: React.FC = () => {
                   ) => (
                     <li key={index} className="p-6 rounded-md bg-gray-200/60 relative text-left">
                       <p>
-                        <strong className="font-roo">Question {index + 1} :</strong> <br />
+                        <strong className="font-roo">Pregunta {index + 1} :</strong> <br />
                         {question}
                       </p>
                       {selectEventType == 1 && (
                         <>
                           <div className="grid gap-1 ">
-                            <strong className="font-roo">Options:</strong>
+                            <strong className="font-roo">Opciones:</strong>
                             {options?.map((option, key) => {
                               return (
                                 <span key={key}>
@@ -415,7 +416,7 @@ const CreateQuizForm: React.FC = () => {
                             })}
                           </div>
                           <p>
-                            <strong className="font-roo">Answer:</strong> {answer}
+                            <strong className="font-roo">Respuesta:</strong> {answer}
                           </p>
                         </>
                       )}
@@ -424,13 +425,13 @@ const CreateQuizForm: React.FC = () => {
                         onClick={() => handleEdit(_id)}
                         className=" absolute top-0 left-0 bg-zen hover:bg-bit rounded-br-md rounded-tl-md px-4 py-1 font-roo cursor-pointer hover:text-white"
                       >
-                        Edit
+                        Editar
                       </div>
                       <div
                         onClick={() => handleDelete(_id)}
                         className="absolute top-0 right-0 bg-red-500 hover:bg-white hover:text-red-500 rounded-tr-md rounded-bl-md px-4 py-1 text-white font-roo cursor-pointer"
                       >
-                        Delete
+                        Borrar
                       </div>
                     </li>
                   ),

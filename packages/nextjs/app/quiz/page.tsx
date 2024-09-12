@@ -52,7 +52,8 @@ const Quiz = () => {
   const { address: connectedAddress } = useAccount();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const baseProvider = process.env.VERCEL_ENV == "production" ? "https://optimism.drpc.org" : "https://sepolia.base.org";
+  const baseProvider =
+    process.env.VERCEL_ENV == "production" ? "https://optimism.drpc.org" : "https://sepolia.base.org";
   const provider = new JsonRpcProvider(process.env.JSON_RPC_PROVIDER || baseProvider);
   const privateProvider = new JsonRpcProvider(process.env.PRIVATE_JSON_RPC_PROVIDER || baseProvider);
   const [data, setData] = useState({
@@ -148,7 +149,7 @@ const Quiz = () => {
   }, [eventId]);
 
   const { data: userData } = useScaffoldContractRead({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "getEventsCompleted",
     args: [connectedAddress],
   });
@@ -165,7 +166,7 @@ const Quiz = () => {
   }
 
   const { data: eventDetails } = useScaffoldContractRead({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "events",
     args: [BigInt(eventId)],
   });
@@ -192,7 +193,7 @@ const Quiz = () => {
   // }
 
   const { writeAsync } = useScaffoldContractWrite({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "getAttested",
     args: [1n, 1n, "0x", "0x"],
     onBlockConfirmation: async txnReceipt => {

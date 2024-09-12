@@ -224,7 +224,7 @@ const CreateQuizForm: React.FC = () => {
   };
 
   const { data: eventData } = useScaffoldContractRead({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "getAllEvents",
   });
 

@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 import "./lib/Structs.sol";
 import "./storage/EASOnboardingStorage.sol";
 
-contract EASOnboarding is EASOnboardingStorage {
+contract SEEDtest is EASOnboardingStorage {
     constructor() {
         deployer = msg.sender;
     }

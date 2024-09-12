@@ -48,7 +48,7 @@ const CreateQuizForm: React.FC = () => {
   } | null>(null);
 
   const { writeAsync } = useScaffoldContractWrite({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "createEvent",
     args: [1n, 1n, 1, "", "", "", "", "0x"],
     onBlockConfirmation: async txnReceipt => {
@@ -66,7 +66,7 @@ const CreateQuizForm: React.FC = () => {
     isFetching: getAllEventsIsFetching,
     isRefetching: getAllEventsIsRefetching,
   } = useScaffoldContractRead({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "getAllEvents",
   });
 

@@ -41,7 +41,7 @@ const RegisterToEventPage: React.FC = () => {
   }, [params?.eventId]);
 
   const { data: eventDetails } = useScaffoldContractRead({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "events",
     args: [parseUnits(params?.eventId as string, 0)],
     enabled: params?.eventId !== undefined,

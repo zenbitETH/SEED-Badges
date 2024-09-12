@@ -12,13 +12,13 @@ const Profile = () => {
   const { address: connectedAddress } = useAccount();
 
   const { data: eventDetails } = useScaffoldContractRead({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "getAllStudentEventsWithAttestations",
     args: [connectedAddress],
   });
 
   // const { data: attestationData } = useScaffoldContractRead({
-  //   contractName: "EASOnboarding",
+  //   contractName: "SEEDtest",
   //   functionName: "getEventsCompleted",
   //   args: [connectedAddress],
   // });
@@ -29,10 +29,10 @@ const Profile = () => {
         {eventDetails?.[0]?.map((doc, index) => {
           return (
             <div className="overflow-hidden rounded-md m-2 bg-gray-200/60 text-center p-6 relative" key={index}>
-              <div className="absolute bottom-0 left-0 bg-zen rounded-tr-md rounded-bl-md px-4 py-1 font-mus text-sm xl:text-base">
+              <div className="absolute bottom-0 left-0 bg-zen rounded-tr-md rounded-bl-md px-4 py-1 font-roo text-sm xl:text-base">
                 Evento {doc?.eventId.toString()}
               </div>
-              <div className="absolute bottom-0 right-0 bg-bit rounded-br-md rounded-tl-md px-4 py-1 text-white font-mus text-sm xl:text-base">
+              <div className="absolute bottom-0 right-0 bg-bit rounded-br-md rounded-tl-md px-4 py-1 text-white font-roo text-sm xl:text-base">
                 Nv: {doc?.level.toString()}
               </div>
               <div className="absolute bottom-0 right-0 left-0 text-center bg-white hover:bg-gray-500 rounded-t-md w-fit mx-auto px-4 py-1 hover:text-white text-sm xl:text-base">
@@ -45,7 +45,7 @@ const Profile = () => {
                   Ver en registro público (EAS)
                 </a>
               </div>
-              <div className="xl:text-2xl md:text-xl font-bold font-mus ">{doc?.eventName}</div>
+              <div className="xl:text-2xl md:text-xl font-bold font-roo ">{doc?.eventName}</div>
               <Image
                 src={"https://ipfs.io/ipfs/" + eventDetails?.[1]?.[index]}
                 alt="Profile"
@@ -60,7 +60,7 @@ const Profile = () => {
       </div>
       <div className="mt-6 flex justify-center">
         <button
-          className="bg-zen text-black hover:text-white hover:bg-bit px-6 py-3 rounded-md font-mus text-lg"
+          className="bg-zen text-black hover:text-white hover:bg-bit px-6 py-3 rounded-md font-roo text-lg"
           onClick={() => {
             router.push("/");
           }}

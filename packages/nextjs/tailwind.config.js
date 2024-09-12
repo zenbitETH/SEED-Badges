@@ -78,12 +78,17 @@ module.exports = {
     extend: {
       colors: {
         display: ["group-hover"],
-        zen: "#F5A82F",
-        bit: "#008B8A",
+        zen: "#F651F6",
+        bit: "#ffffff80",
       },
       fontFamily: {
+        roo: ["RoobertPRO"],
         mus: ["MuseoModerno"],
         cha: ["Chakra Petch"],
+      },
+      fontWeight: {
+        normal: "400",
+        bold: "700",
       },
       screens: {
         "2xl": "1601px",

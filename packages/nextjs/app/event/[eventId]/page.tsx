@@ -27,13 +27,13 @@ export default function EventDetailPage() {
   const { address: connectedAddress } = useAccount();
 
   const { data: eventDetails } = useScaffoldContractRead({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "events",
     args: [parseUnits(params?.eventId as string, 0)],
     enabled: params?.eventId !== undefined,
   });
   const { data: eventCreatedEvent } = useScaffoldEventHistory({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     eventName: "EventCreated",
     fromBlock: 119579120n,
     filters: { eventId: parseUnits(params?.eventId as string, 0) },
@@ -41,7 +41,7 @@ export default function EventDetailPage() {
   });
 
   const { data: attestationAddedEvent } = useScaffoldEventHistory({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     eventName: "AttestationAdded",
     fromBlock: 119579120n,
     filters: { eventId: parseUnits(params?.eventId as string, 0) },
@@ -49,7 +49,7 @@ export default function EventDetailPage() {
   });
 
   const { data: userData } = useScaffoldContractRead({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "getEventsCompleted",
     args: [connectedAddress],
   });
@@ -98,10 +98,10 @@ export default function EventDetailPage() {
       <section className="text-center mx-auto rounded-md  relative bg-gradient-to-b bg-gray-200/60 to-gray-500/20 mb-5 p-3 max-w-3xl">
         {eventDetails ? (
           <div className="text-sm">
-            <div className="absolute top-0 left-0 bg-zen text-black rounded-br-md px-4 py-1 font-mus rounded-tl-xl text-sm">
+            <div className="absolute top-0 left-0 bg-zen text-black rounded-br-md px-4 py-1 font-roo rounded-tl-xl text-sm">
               Evento {eventDetails[1].toString()} / Nv: {eventDetails[2].toString()}
             </div>
-            <div className="absolute top-0 right-0 bg-bit rounded-tr-xl rounded-bl-md px-4 py-1 text-white font-mus">
+            <div className="absolute top-0 right-0 bg-bit rounded-tr-xl rounded-bl-md px-4 py-1 text-white font-roo">
               {!(userData && userData?.[1].includes(parseUnits(String(eventDetails[1]), 0))) &&
                 Number(eventDetails[3]) * 1000 < Date.now() &&
                 "No tienes esta Badge :("}
@@ -119,7 +119,7 @@ export default function EventDetailPage() {
           />
         ) : null}
         {eventDetails ? (
-          <h1 id="Event Name" className="text-xl md:text-2xl lg:text-4xl font-bold font-mus">
+          <h1 id="Event Name" className="text-xl md:text-2xl lg:text-4xl font-bold font-roo">
             {String(eventDetails[5])}
           </h1>
         ) : null}
@@ -144,7 +144,7 @@ export default function EventDetailPage() {
           </div>
         ) : null}
       </section>
-      <div className="text-xl font-mus text-center my-3">Badges otorgadas en este evento</div>
+      <div className="text-xl font-roo text-center my-3">Badges otorgadas en este evento</div>
       <div className="max-w-[360px] mx-auto sm:max-w-xl  lg:max-w-6xl overflow-x-auto   bg-black/40 rounded-md text-white">
         <table className="table  ">
           {/* head */}

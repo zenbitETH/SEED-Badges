@@ -4,6 +4,20 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+  font-family: 'RoobertPRO';
+  src: url('/fonts/RoobertPRO-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RoobertPRO';
+  src: url('/fonts/RoobertPRO-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root,
 [data-theme] {
   background: oklch(var(--b2));
@@ -43,7 +57,7 @@ select {
 }
 
 button {
-  @apply text-black hover:text-white hover:bg-bit px-6 py-1 rounded-md font-mus xl:text-lg;
+  @apply text-black hover:text-white hover:bg-bit px-6 py-1 rounded-md font-roo xl:text-lg;
 }
 
 .radio {
@@ -60,7 +74,7 @@ button {
 }
 
 .badge-granted {
-  @apply bg-gradient-to-t from-zen/60 to-bit/90 hover:cursor-not-allowed backdrop-blur-md text-white;
+  @apply bg-gradient-to-t from-zen/60 to-gray-600/20 hover:cursor-not-allowed backdrop-blur-md text-white;
 }
 
 .ql-toolbar,

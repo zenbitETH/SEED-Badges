@@ -57,7 +57,7 @@ const deployMyContract: DeployFunction = async function (hre: HardhatRuntimeEnvi
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("EASOnboarding", {
+  await deploy("SEEDtest", {
     from: deployer,
     // Contract constructor arguments
     args: [],
@@ -68,7 +68,7 @@ const deployMyContract: DeployFunction = async function (hre: HardhatRuntimeEnvi
   });
 
   // Get the deployed contract to interact with it after deploying.
-  const myContract = await hre.ethers.getContract<Contract>("EASOnboarding", deployer);
+  const myContract = await hre.ethers.getContract<Contract>("SEEDtest", deployer);
   console.log("contract deplpyed : ", myContract.target);
 };
 

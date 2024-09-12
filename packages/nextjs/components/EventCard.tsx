@@ -24,7 +24,7 @@ export const EventCard = ({
           ? "badge-granted"
           : Number(eventDetails.closingTimestamp) * 1000 < Date.now()
           ? "finalized-event"
-          : "bg-gray-200/60"
+          : "bg-gradient-to-b from-gray-200/60 to-gray-500/20"
       } rounded-md shadow-md relative cursor-pointer h-full group`}
     >
       <span className="text-xl absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 rounded-md backdrop-blur-md">
@@ -59,15 +59,15 @@ export const EventCard = ({
           Conecta tu cartera web3 🦊 ↗️
         </span>
       )}
-      <div className="absolute top-0 left-0 bg-zen text-black rounded-br-md rounded-tl-md px-4 py-1 font-mus text-sm">
+      <div className="absolute top-0 left-0 bg-zen text-black rounded-br-md rounded-tl-md px-4 py-1 font-roo text-sm">
         Evento {eventDetails.eventId.toString()} <span className="">/ Nv: {eventDetails.level.toString()}</span>
       </div>
-      <div className="absolute top-0 right-0 text-black bg-white/70 hover:bg-zen rounded-tr-md rounded-bl-md px-4 py-1 hover:text-white font-mus text-sm">
+      <div className="absolute top-0 right-0 text-black bg-white/70 hover:bg-zen rounded-tr-md rounded-bl-md px-4 py-1 hover:text-white font-roo text-sm">
         <Link href={`/event/${eventDetails.eventId}`} className="">
           Ver detalle
         </Link>
       </div>
-      <div className="absolute bottom-0 right-0 left-0 bg-gray-500/60 text-base  py-1 rounded-b-md text-white font-cha text-center">
+      <div className="absolute bottom-0 right-0 left-0 bg-gray-500/60 text-base  py-1 rounded-b-md text-white font-roo text-center">
         {!(Number(eventDetails.closingTimestamp) * 1000 < Date.now()) ? (
           <CountdownMonths timeToExpiration={Number(eventDetails.closingTimestamp) * 1000} />
         ) : (
@@ -75,7 +75,7 @@ export const EventCard = ({
         )}
       </div>
       <div className="flex flex-col justify-center items-center ">
-        <span className="flex 2xl:text-lg font-bold font-mus px-5 items-center justify-center">
+        <span className="flex 2xl:text-lg font-bold font-roo px-5 items-center justify-center">
           {String(eventDetails.eventName)}
         </span>
         <span>
@@ -93,8 +93,8 @@ export const EventCard = ({
           />
         </div>
       </div>
-      <div className="col-span-3  font-cha text-center">
-        <div className=" italic pb-3">Mentor: {String(eventDetails.mentorName)}</div>
+      <div className="col-span-3  font-roo text-center">
+        <div className=" italic pb-3 text-white">Mentor: {String(eventDetails.mentorName)}</div>
       </div>
       {/*
       <div className="flex flex-row w-full justify-evenly">

@@ -38,12 +38,12 @@ const Home = () => {
   const router = useRouter();
 
   const { data: events } = useScaffoldContractRead({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "getAllEvents",
   });
 
   const { data: userData } = useScaffoldContractRead({
-    contractName: "EASOnboarding",
+    contractName: "SEEDtest",
     functionName: "getEventsCompleted",
     args: [connectedAddress],
   });

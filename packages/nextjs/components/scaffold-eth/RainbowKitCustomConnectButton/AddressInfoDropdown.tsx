@@ -46,14 +46,14 @@ export const AddressInfoDropdown = ({
 
   return (
     <>
-      <details ref={dropdownRef} className="dropdown dropdown-end leading-3">
+      <details ref={dropdownRef} className="dropdown dropdown-end leading-3 ">
         <summary
           tabIndex={0}
           className="btn bg-bit focus:bg-zen hover:bg-zen border-none btn-sm pl-0 pr-2 shadow-md dropdown-toggle gap-0 !h-auto "
         >
-          <div className="flex items-center">
+          <div className="flex items-center text-gray-700 hover:text-white">
             <BlockieAvatar address={checkSumAddress} size={30} ensImage={ensAvatar} />
-            <div className="ml-2 mr-1">
+            <div className="ml-2 mr-1 ">
               {isENS(displayName) ? displayName : checkSumAddress?.slice(0, 6) + "..." + checkSumAddress?.slice(-4)}
             </div>
             <ChevronDownIcon className="h-6 w-4 ml-2 sm:ml-0" />
@@ -61,17 +61,17 @@ export const AddressInfoDropdown = ({
         </summary>
         <ul
           tabIndex={0}
-          className="dropdown-content menu z-[2] p-2 mt-2 shadow-center shadow-accent bg-bit rounded-box gap-1"
+          className="dropdown-content menu z-[2] p-2 mt-2 shadow-center shadow-accent bg-bit  rounded-box gap-1 texxt"
         >
           <NetworkOptions hidden={!selectingNetwork} />
-          <li className={selectingNetwork ? "hidden" : ""}>
+          <li className={selectingNetwork ? "hidden" : " "}>
             {addressCopied ? (
               <div className="btn-sm !rounded-xl flex gap-3 py-3">
                 <CheckCircleIcon
                   className="text-xl font-normal h-6 w-4 cursor-pointer ml-2 sm:ml-0"
                   aria-hidden="true"
                 />
-                <span className=" whitespace-nowrap">Copiar dirección</span>
+                <span className=" whitespace-nowrap ">Copiar dirección</span>
               </div>
             ) : (
               <CopyToClipboard
@@ -83,12 +83,12 @@ export const AddressInfoDropdown = ({
                   }, 800);
                 }}
               >
-                <div className="btn-sm !rounded-xl flex gap-3 py-3">
+                <div className="btn-sm !rounded-xl flex gap-3 py-3  ">
                   <DocumentDuplicateIcon
                     className="text-xl font-normal h-6 w-4 cursor-pointer ml-2 sm:ml-0"
                     aria-hidden="true"
                   />
-                  <span className=" whitespace-nowrap">Copiar dirección</span>
+                  <span className=" whitespace-nowrap ">Copiar dirección</span>
                 </div>
               </CopyToClipboard>
             )}
@@ -96,7 +96,7 @@ export const AddressInfoDropdown = ({
           <li className={selectingNetwork ? "hidden" : ""}>
             <label htmlFor="qrcode-modal" className="btn-sm !rounded-xl flex gap-3 py-3">
               <QrCodeIcon className="h-6 w-4 ml-2 sm:ml-0" />
-              <span className="whitespace-nowrap">Ver QR</span>
+              <span className="whitespace-nowrap ">Ver QR</span>
             </label>
           </li>
           <li className={selectingNetwork ? "hidden" : ""}>

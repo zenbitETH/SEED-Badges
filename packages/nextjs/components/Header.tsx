@@ -67,9 +67,9 @@ export const HeaderMenuLinks = () => {
       {menuLinks.map(({ label, href }) => {
         const isActive = pathname === href;
         return (
-          <li className="xl:text-lg " key={href}>
-            <Link href={href} passHref className={`${isActive ? "bg-zen p-1" : ""}`}>
-              <span className=" px-2 rounded-full text-white hover:text-zen">{label}</span>
+          <li className="xl:text-lg grid items-center " key={href}>
+            <Link href={href} passHref className={`${isActive ? "bg-zen px-0 py-0" : ""}`}>
+              <span className=" px-3 py-2 rounded-full text-white hover:bg-zen ">{label}</span>
             </Link>
           </li>
         );
@@ -88,8 +88,8 @@ export const Header = () => {
 
   return (
     <div className="fixed font-roo backdrop-blur-lg top-0 navbar min-h-0 flex-shrink-0 justify-between z-20 p-0 sm:px-2 ">
-      <div className="navbar w-full">
-        <div className="lg:hidden dropdown" ref={burgerMenuRef}>
+      <div className="">
+        <div className="lg:hidden dropdown text-zen hover:text-white" ref={burgerMenuRef}>
           <label
             tabIndex={0}
             className={`ml-1 btn btn-ghost ${isDrawerOpen ? "hover:bg-zen" : ""}`}
@@ -102,7 +102,7 @@ export const Header = () => {
           {isDrawerOpen && (
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2  bg-bit  rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2  bg-gray-800  rounded-box w-52"
               onClick={() => {
                 setIsDrawerOpen(false);
               }}
@@ -111,15 +111,12 @@ export const Header = () => {
             </ul>
           )}
         </div>
-        <Link href="/" passHref className="hidden navbar-start lg:flex items-center gap-2 shrink-0 text-xl text-center">
-          <div className="flex relative w-full h-12">
+        <Link href="/" passHref className="hidden lg:flex items-center gap-2 shrink-0 text-xl text-center w-full pt-3">
+          <div className="flex relative w-48 h-12">
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
           </div>
-          <div className="flex flex-col">
-            <span className="font-bold leading-tight">SEED Badges</span>
-          </div>
         </Link>
-        <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2 mx-auto">
+        <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal gap-2 pt-5 ">
           <HeaderMenuLinks />
         </ul>
       </div>

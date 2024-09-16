@@ -41,6 +41,7 @@ export const HeaderMenuLinks = () => {
         "0x04cc6b487566B1C821bEa04d7ac0d23CEDe05cC9",
         "0xeCB4C1245665e8A1F43826355aaB0Dd6bF336e05",
         "0xe2A45CA9Ec5780FC389FBD8991980397b8B470AF",
+        "0xD4BAD65991F6362DB367e9F40e8f9CE115b83a9E",
       ].includes(connectedAddress)
     ) {
       additionalLinks.push(

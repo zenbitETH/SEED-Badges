@@ -17,6 +17,19 @@ export const EventCard = ({
 }) => {
   const account = useAccount();
 
+  // console.log(eventDetails.eventId, { userData, eventDetails });
+  // console.log(eventDetails?.eventId, userData?.[0] == eventDetails?.eventId);
+  // console.log(
+  //   eventDetails?.eventId.toString() === "1"
+  //     ? {
+  //         id: eventDetails?.eventId.toString(),
+  //         a: userData?.[0] == eventDetails?.eventId,
+  //         b: userData?.[1].includes(eventDetails?.eventId),
+  //         userData,
+  //         eventDetails,
+  //       }
+  //     : null,
+  // );
   return (
     <div
       className={`py-10 sm:p-10 ${
@@ -37,7 +50,7 @@ export const EventCard = ({
       {userData &&
       !userData?.[1].includes(eventDetails?.eventId) &&
       !(Number(eventDetails.closingTimestamp) * 1000 < Date.now()) &&
-      Number(eventDetails.startTimestamp) * 1000 < Date.now() ? (
+      Number(eventDetails.startTimestamp) > Date.now() ? (
         <Link
           href={`/quiz?eventId=${eventDetails?.eventId}`}
           className="text-xl text-white absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 rounded-md backdrop-blur-md"
@@ -45,7 +58,9 @@ export const EventCard = ({
           ¡Reclama esta Badge! 🎖️
         </Link>
       ) : null}
-      {eventDetails.startTimestamp && !(Number(eventDetails.startTimestamp) < Date.now()) ? (
+      {eventDetails.startTimestamp &&
+      !(Number(eventDetails.startTimestamp) < Date.now()) &&
+      !userData?.[1].includes(eventDetails?.eventId) ? (
         <Link
           href={`/event/${eventDetails?.eventId}/register`}
           className="text-xl text-white absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 rounded-md backdrop-blur-md"
@@ -53,6 +68,7 @@ export const EventCard = ({
           ¡Registrarse al evento!
         </Link>
       ) : null}
+      {/* TODO: chequear con habacuc la condicion correcta para mostrar registrar a evento y reclamar badge */}
 
       {!account?.address && (
         <span className="text-xl text-white absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 rounded-md backdrop-blur-md">

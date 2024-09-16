@@ -6,8 +6,8 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
   84532: {
-    SEEDtest: {
-      address: "0x5022fA30B3158051fBa6EdA14d98e31a44B3A561",
+    EASOnboarding: {
+      address: "0x304892F028a4EB10261f47B535Ca1E13C86Fdf74",
       abi: [
         {
           inputs: [],
@@ -720,7 +720,16 @@ const deployedContracts = {
           type: "function",
         },
       ],
-      inheritedFunctions: {},
+      inheritedFunctions: {
+        attestationProfile: "contracts/storage/EASOnboardingStorage.sol",
+        eventIdCounter: "contracts/storage/EASOnboardingStorage.sol",
+        events: "contracts/storage/EASOnboardingStorage.sol",
+        getAllEvents: "contracts/storage/EASOnboardingStorage.sol",
+        getAllStudentEventsWithAttestations: "contracts/storage/EASOnboardingStorage.sol",
+        getEventsCompleted: "contracts/storage/EASOnboardingStorage.sol",
+        isMentor: "contracts/storage/EASOnboardingStorage.sol",
+        studentEventMap: "contracts/storage/EASOnboardingStorage.sol",
+      },
     },
   },
 } as const;

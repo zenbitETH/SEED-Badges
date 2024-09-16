@@ -149,7 +149,7 @@ const Quiz = () => {
   }, [eventId]);
 
   const { data: userData } = useScaffoldContractRead({
-    contractName: "SEEDtest",
+    contractName: "EASOnboarding",
     functionName: "getEventsCompleted",
     args: [connectedAddress],
   });
@@ -166,7 +166,7 @@ const Quiz = () => {
   }
 
   const { data: eventDetails } = useScaffoldContractRead({
-    contractName: "SEEDtest",
+    contractName: "EASOnboarding",
     functionName: "events",
     args: [BigInt(eventId)],
   });
@@ -193,7 +193,7 @@ const Quiz = () => {
   // }
 
   const { writeAsync } = useScaffoldContractWrite({
-    contractName: "SEEDtest",
+    contractName: "EASOnboarding",
     functionName: "getAttested",
     args: [1n, 1n, "0x", "0x"],
     onBlockConfirmation: async txnReceipt => {

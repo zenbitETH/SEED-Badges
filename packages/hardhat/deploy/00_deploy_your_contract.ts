@@ -57,7 +57,7 @@ const deployMyContract: DeployFunction = async function (hre: HardhatRuntimeEnvi
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("SEEDtest", {
+  await deploy("EASOnboarding", {
     from: deployer,
     // Contract constructor arguments
     args: [],
@@ -65,10 +65,11 @@ const deployMyContract: DeployFunction = async function (hre: HardhatRuntimeEnvi
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
     // automatically mining the contract deployment transaction. There is no effect on live networks.
     autoMine: true,
+    // nonce: "0x01",
   });
 
   // Get the deployed contract to interact with it after deploying.
-  const myContract = await hre.ethers.getContract<Contract>("SEEDtest", deployer);
+  const myContract = await hre.ethers.getContract<Contract>("EASOnboarding", deployer);
   console.log("contract deplpyed : ", myContract.target);
 };
 

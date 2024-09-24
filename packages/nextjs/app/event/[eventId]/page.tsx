@@ -27,29 +27,28 @@ export default function EventDetailPage() {
   const { address: connectedAddress } = useAccount();
 
   const { data: eventDetails } = useScaffoldContractRead({
-    contractName: "SEEDtest",
+    contractName: "EASOnboarding",
     functionName: "events",
     args: [parseUnits(params?.eventId as string, 0)],
     enabled: params?.eventId !== undefined,
   });
   const { data: eventCreatedEvent } = useScaffoldEventHistory({
-    contractName: "SEEDtest",
+    contractName: "EASOnboarding",
     eventName: "EventCreated",
-    fromBlock: 119579120n,
+    fromBlock: 15339640n,
     filters: { eventId: parseUnits(params?.eventId as string, 0) },
     blockData: true,
   });
 
   const { data: attestationAddedEvent } = useScaffoldEventHistory({
-    contractName: "SEEDtest",
+    contractName: "EASOnboarding",
     eventName: "AttestationAdded",
-    fromBlock: 119579120n,
+    fromBlock: 15339640n,
     filters: { eventId: parseUnits(params?.eventId as string, 0) },
     blockData: true,
   });
-
   const { data: userData } = useScaffoldContractRead({
-    contractName: "SEEDtest",
+    contractName: "EASOnboarding",
     functionName: "getEventsCompleted",
     args: [connectedAddress],
   });

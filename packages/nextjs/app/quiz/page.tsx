@@ -52,7 +52,7 @@ const Quiz = () => {
   const { address: connectedAddress } = useAccount();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const baseProvider = "https://sepolia.base.org";
+  const baseProvider = "https://sepolia.optimism.io";
   // process.env.NEXT_PUBLIC_VERCEL_ENV == "production" ? "https://optimism.drpc.org" : "https://sepolia.base.org"; // TODO: DEV_NOTE: update this ternary when we stop using testnet for production
   const provider = new JsonRpcProvider(process.env.JSON_RPC_PROVIDER || baseProvider);
   const privateProvider = new JsonRpcProvider(process.env.PRIVATE_JSON_RPC_PROVIDER || baseProvider);

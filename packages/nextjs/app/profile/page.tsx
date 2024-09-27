@@ -12,13 +12,13 @@ const Profile = () => {
   const { address: connectedAddress } = useAccount();
 
   const { data: eventDetails } = useScaffoldContractRead({
-    contractName: "SEEDtest",
+    contractName: "EASOnboarding",
     functionName: "getAllStudentEventsWithAttestations",
     args: [connectedAddress],
   });
 
   // const { data: attestationData } = useScaffoldContractRead({
-  //   contractName: "SEEDtest",
+  //   contractName: "EASOnboarding",
   //   functionName: "getEventsCompleted",
   //   args: [connectedAddress],
   // });

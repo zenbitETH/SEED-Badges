@@ -1033,7 +1033,7 @@ let deployedContractTemplate;
 
 if (process.env.VERCEL_ENV == "production") {
   deployedContractTemplate = {
-    address: "0xE383f2B3Ff9024bAa09b33923b8DBd0F2AF98ad0",
+    address: "0x304892F028a4EB10261f47B535Ca1E13C86Fdf74", // forced to optimismSepolia as we don't have a mainnet deployment yet
     abi: [
       {
         inputs: [],
@@ -1473,6 +1473,11 @@ if (process.env.VERCEL_ENV == "production") {
             name: "",
             type: "tuple[]",
           },
+          {
+            internalType: "string[]",
+            name: "",
+            type: "string[]",
+          },
         ],
         stateMutability: "view",
         type: "function",
@@ -1554,6 +1559,25 @@ if (process.env.VERCEL_ENV == "production") {
             internalType: "bytes32[]",
             name: "",
             type: "bytes32[]",
+          },
+        ],
+        stateMutability: "view",
+        type: "function",
+      },
+      {
+        inputs: [
+          {
+            internalType: "address",
+            name: "",
+            type: "address",
+          },
+        ],
+        name: "isMentor",
+        outputs: [
+          {
+            internalType: "bool",
+            name: "",
+            type: "bool",
           },
         ],
         stateMutability: "view",
@@ -1725,7 +1749,7 @@ if (process.env.VERCEL_ENV == "production") {
   };
 } else {
   deployedContractTemplate = {
-    address: "0xaF66288e6c7865F3E66B72DCB5bB0aB92f1306bA", // this is baseSepolia
+    address: "0x304892F028a4EB10261f47B535Ca1E13C86Fdf74", // this is optimismSepolia
     abi: [
       {
         inputs: [],
@@ -2165,6 +2189,11 @@ if (process.env.VERCEL_ENV == "production") {
             name: "",
             type: "tuple[]",
           },
+          {
+            internalType: "string[]",
+            name: "",
+            type: "string[]",
+          },
         ],
         stateMutability: "view",
         type: "function",
@@ -2246,6 +2275,25 @@ if (process.env.VERCEL_ENV == "production") {
             internalType: "bytes32[]",
             name: "",
             type: "bytes32[]",
+          },
+        ],
+        stateMutability: "view",
+        type: "function",
+      },
+      {
+        inputs: [
+          {
+            internalType: "address",
+            name: "",
+            type: "address",
+          },
+        ],
+        name: "isMentor",
+        outputs: [
+          {
+            internalType: "bool",
+            name: "",
+            type: "bool",
           },
         ],
         stateMutability: "view",

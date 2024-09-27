@@ -52,8 +52,8 @@ const Quiz = () => {
   const { address: connectedAddress } = useAccount();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const baseProvider =
-    process.env.VERCEL_ENV == "production" ? "https://optimism.drpc.org" : "https://sepolia.base.org";
+  const baseProvider = "https://sepolia.optimism.io";
+  // process.env.NEXT_PUBLIC_VERCEL_ENV == "production" ? "https://optimism.drpc.org" : "https://sepolia.base.org"; // TODO: DEV_NOTE: update this ternary when we stop using testnet for production
   const provider = new JsonRpcProvider(process.env.JSON_RPC_PROVIDER || baseProvider);
   const privateProvider = new JsonRpcProvider(process.env.PRIVATE_JSON_RPC_PROVIDER || baseProvider);
   const [data, setData] = useState({
@@ -72,6 +72,7 @@ const Quiz = () => {
     safeAddress: "",
     eventURL: "",
     quizType: "",
+    daoENS: "",
   });
 
   async function grantAttestation(easContract: Contract, data: string, recipient: Address) {
@@ -125,6 +126,7 @@ const Quiz = () => {
 
   const searchParams = useSearchParams();
   const { eventId = "" } = searchParams ? Object.fromEntries(searchParams) : {};
+
   if (!eventId) {
     alert("1");
     router.push("/");
@@ -149,7 +151,7 @@ const Quiz = () => {
   }, [eventId]);
 
   const { data: userData } = useScaffoldContractRead({
-    contractName: "SEEDtest",
+    contractName: "EASOnboarding",
     functionName: "getEventsCompleted",
     args: [connectedAddress],
   });
@@ -166,7 +168,7 @@ const Quiz = () => {
   }
 
   const { data: eventDetails } = useScaffoldContractRead({
-    contractName: "SEEDtest",
+    contractName: "EASOnboarding",
     functionName: "events",
     args: [BigInt(eventId)],
   });
@@ -193,7 +195,7 @@ const Quiz = () => {
   // }
 
   const { writeAsync } = useScaffoldContractWrite({
-    contractName: "SEEDtest",
+    contractName: "EASOnboarding",
     functionName: "getAttested",
     args: [1n, 1n, "0x", "0x"],
     onBlockConfirmation: async txnReceipt => {
@@ -359,33 +361,33 @@ const Quiz = () => {
 
         const value = parseDomain(subDomain);
 
-        const result = await client.getAddressRecord({ name: value });
+        const daoAddress = await client.getAddressRecord({ name: value });
 
-        if (!result) {
+        if (!daoAddress) {
           alert("No perteneces a esa DAO, por favor verifica");
           return;
         }
 
-        const gnosisContractObj = new Contract(result?.value, gnosisContract.abi, provider);
+        const gnosisContractObj = new Contract(daoAddress?.value, gnosisContract.abi, provider);
 
         const txResponse = await gnosisContractObj.getOwners();
         if (txResponse) {
           if (!txResponse.includes(connectedAddress)) {
             alert("No perteneces a esa DAO, por favor verifica");
           } else {
-            setState({ ...state, safeAddress: result?.value, answer: answer });
+            setState({ ...state, safeAddress: daoAddress?.value, answer: answer, daoENS: subDomain });
           }
           return;
         }
       } else if (eventDetails?.[0] == 4) {
-        const answer = Object.values(answers)[0];
+        // const answer = Object.values(answers)[0];
         const response = await fetch("/api/userQuiz", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             "x-api-key": process.env.API_KEY || "",
           },
-          body: JSON.stringify({ eventId: eventId, value: answer, eventType: eventDetails?.[0].toString() }),
+          body: JSON.stringify({ eventId: eventId, value: answers, eventType: eventDetails?.[0].toString() }),
         });
         const result = await response.json();
         if (result && result.data) {
@@ -430,7 +432,7 @@ const Quiz = () => {
     }
   };
 
-  // // Check for the access to the questions before rendering the component
+  // Check for the access to the questions before rendering the component
   return loading ? (
     <Loader />
   ) : (

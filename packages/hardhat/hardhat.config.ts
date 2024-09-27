@@ -19,7 +19,7 @@ const deployerPrivateKey =
 // If not set, it uses ours Etherscan default API key.
 const etherscanApiKey = process.env.ETHERSCAN_API_KEY || "DNXJA8RX2Q3VZ4URQIWP7Z68CJXQZSC6AW";
 
-// const network = process.env.VERCEL_ENV == "production" ? "optimism" : "baseSepolia";
+// const network = process.env.VERCEL_ENV == "production" ? "optimism" : "optimismSepolia";
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -32,7 +32,7 @@ const config: HardhatUserConfig = {
       },
     },
   },
-  defaultNetwork: "baseSepolia",
+  defaultNetwork: "optimismSepolia",
   namedAccounts: {
     deployer: {
       // By default, it will take the first Hardhat account as the deployer
@@ -126,6 +126,7 @@ const config: HardhatUserConfig = {
     apiKey: {
       baseSepolia: `6UGXUFGY5XYIHAA65AAGSM4KI4J3V8EIM4`,
       optimisticEthereum: `ZF52JI7EI7QPD4312FAPYMF9UVYBRURYN5`,
+      optimismSepolia: `XJSDBJZB3K8JRKA2NTKYVNEFUW2WXN4VZF`,
     },
     customChains: [
       {
@@ -134,6 +135,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://api-sepolia.basescan.org/api",
           browserURL: "https://sepolia.basescan.io",
+        },
+      },
+      {
+        network: "optimismSepolia",
+        chainId: 11155420,
+        urls: {
+          apiURL: "https://api-sepolia-optimistic.etherscan.io/api",
+          browserURL: "https://sepolia-optimism.etherscan.io",
         },
       },
     ],

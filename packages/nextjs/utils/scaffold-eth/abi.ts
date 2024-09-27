@@ -1033,7 +1033,7 @@ let deployedContractTemplate;
 
 if (process.env.VERCEL_ENV == "production") {
   deployedContractTemplate = {
-    address: "0x304892F028a4EB10261f47B535Ca1E13C86Fdf74", // forced to baseSepolia as we don't have a mainnet deployment yet
+    address: "0x304892F028a4EB10261f47B535Ca1E13C86Fdf74", // forced to optimismSepolia as we don't have a mainnet deployment yet
     abi: [
       {
         inputs: [],
@@ -1749,7 +1749,7 @@ if (process.env.VERCEL_ENV == "production") {
   };
 } else {
   deployedContractTemplate = {
-    address: "0x304892F028a4EB10261f47B535Ca1E13C86Fdf74", // this is baseSepolia
+    address: "0x304892F028a4EB10261f47B535Ca1E13C86Fdf74", // this is optimismSepolia
     abi: [
       {
         inputs: [],

@@ -10,12 +10,12 @@ export type ScaffoldConfig = {
 };
 const isProd = process.env.NEXT_PUBLIC_VERCEL_ENV == "production";
 
-const targetNetwork = isProd ? chains.optimism : chains.baseSepolia; // TODO: When defined, adjust to target network
+const targetNetwork = isProd ? chains.optimism : chains.optimismSepolia; // TODO: When defined, adjust to target network
 console.log("isProd : " + isProd + " | targetNetwork: " + targetNetwork.name);
 
 const scaffoldConfig = {
   // The networks on which your DApp is live
-  targetNetworks: [chains.baseSepolia],
+  targetNetworks: [chains.optimismSepolia],
 
   // The interval at which your front-end polls the RPC servers for new data
   // it has no effect if you only target the local network (default is 4000)

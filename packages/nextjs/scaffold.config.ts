@@ -8,9 +8,10 @@ export type ScaffoldConfig = {
   onlyLocalBurnerWallet: boolean;
   walletAutoConnect: boolean;
 };
-// const isProd = process.env.VERCEL_ENV == "production";
+const isProd = process.env.NEXT_PUBLIC_VERCEL_ENV == "production";
 
-// const targetNetwork = isProd ? chains.optimism : chains.baseSepolia;
+const targetNetwork = isProd ? chains.optimism : chains.baseSepolia;
+console.log("isProd : " + isProd + " | targetNetwork: " + targetNetwork.name);
 
 const scaffoldConfig = {
   // The networks on which your DApp is live
